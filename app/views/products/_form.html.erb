@@ -1,0 +1,68 @@
+<div class="card text-center">
+  <div class="card-header">
+    <h2> Add New Product </h2>
+  </div>
+  <div class="card-body">
+    <%= form_with(model: product, local: true) do |form| %>
+      <% if product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+          <ul>
+          <% product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <div class="form-group row">
+      <label for="product_name" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" name="product[name]" class="form-control" id="product_name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="product_description" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+         <textarea name="product[description]" class="form-control" id="product_description"></textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="product_price" class="col-sm-2 col-form-label">Price</label>
+      <div class="col-sm-10">
+        <input type="text" name="product[price]" class="form-control" id="product_price">
+      </div>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Availability</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="product[availability]" id="product_availability" value="1" checked>
+            <label class="form-check-label" for="product_availability">
+             In Stock
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="product[availability]" id="product_availability" value="0">
+            <label class="form-check-label" for="product_availability">
+              Back Ordered
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-group row">
+      <label for="product_img_url" class="col-sm-2 col-form-label">Img url</label>
+      <div class="col-sm-10">
+        <input type="text" name="product[img_url]" class="form-control" id="product_img_url">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <input type="submit" name="commit" class="btn btn-primary" value="Create Product" data-disable-with="Create Product">
+        <a href="/products" id="cancel" name="cancel" class="btn btn-primary">Cancel</a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
