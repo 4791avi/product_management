@@ -10,8 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap.min
 //= require jquery-3.5.1.min
+//= require bootstrap.min
 //= require datatables.min
 //= require popper.min
 //= require custom
