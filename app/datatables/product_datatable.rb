@@ -32,7 +32,7 @@ class ProductDatatable < AjaxDatatablesRails::ActiveRecord
     end
   end
   def get_raw_records
-    Product.all.order(created_at: :desc)
+    Product.all
   end
 
 private
