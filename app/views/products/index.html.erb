@@ -1,42 +1,37 @@
-<a href="<%= new_product_path%>" class="btn btn-secondary float-right" role="button" >Add Product</a><br>
-<p id="notice"><%= notice %></p>
+<a href="<%= new_product_path%> " class="btn btn-secondary float-right" role="button" >Add Product</a><br>
 <table id="products-datatable" data-source="<%= products_path(format: :json) %>" class="table table-bordered">
   <thead class="thead-dark">
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Availability</th>
-    <th>Img url</th>
-    <th>Action</th>
-  </tr>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Availability</th>
+      <th>Img url</th>
+      <th>Action</th>
+    </tr>
   </thead>
   <tbody>
   </tbody>
 </table>
 <br>
-
-
 <script>
   jQuery(document).ready(function() {
-      $('#products-datatable').dataTable({
-          "processing": true,
-          "serverSide": true,
-          "columnDefs": [{ "orderable": false, "targets": -1 }],
-          "ajax": $('#products-datatable').data('source'),
-          "pagingType": "full_numbers",
-          "columns": [
-              {"data": "id"},
-              {"data": "name"},
-              {"data": "description"},
-              {"data": "price"},
-              {"data": "availability"},
-              {"data": "img_url"},
-              {"data": "action"}
-          ],
-      });
-      $('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
+    $('#products-datatable').dataTable({
+        "processing": true,
+        "serverSide": true,
+        "columnDefs": [{ "orderable": false, "targets": -1 }],
+        "ajax": $('#products-datatable').data('source'),
+        "pagingType": "full_numbers",
+        "columns": [
+          {"data": "name"},
+          {"data": "description"},
+          {"data": "price"},
+          {"data": "availability"},
+          {"data": "img_url"},
+          {"data": "action"}
+        ],
+    });
+    $('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
   });
 </script>
 

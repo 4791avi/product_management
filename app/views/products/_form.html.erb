@@ -4,16 +4,7 @@
   </div>
   <div class="card-body">
     <%= form_with(model: product, local: true) do |form| %>
-      <% if product.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-          <ul>
-          <% product.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
+    <%= render "shared/object_flash_message", object: product %>
     <div class="form-group row">
       <label for="product_name" class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
@@ -32,18 +23,24 @@
         <input type="number" name="product[price]" class="form-control" id="product_price" value="<%= product.price if product.price.present? %>" required>
       </div>
     </div>
+    <div class="form-group row">
+      <label for="product_img_url" class="col-sm-2 col-form-label">Img url</label>
+      <div class="col-sm-10">
+        <input type="url" name="product[img_url]" class="form-control" id="product_img_url" value="<%= product.img_url if product.img_url.present? %>" required>
+      </div>
+    </div>
     <fieldset class="form-group">
       <div class="row">
         <legend class="col-form-label col-sm-2 pt-0">Availability</legend>
-        <div class="col-sm-10">
+        <div class="col-sm-2">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="product[availability]" id="product_availability" value="<%= product.availability if product.availability.present? %>" checked>
+            <input class="form-check-input" type="radio" name="product[availability]" id="product_availability" value= "1" <%= "checked" if product.availability == true %>>
             <label class="form-check-label" for="product_availability">
              In Stock
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="product[availability]" id="product_availability" value="<%= product.availability if product.availability.present? %>">
+            <input class="form-check-input" type="radio" name="product[availability]" id="product_availability" value= "0" <%= "checked" if product.availability == false %>>
             <label class="form-check-label" for="product_availability">
               Back Ordered
             </label>
@@ -51,12 +48,6 @@
         </div>
       </div>
     </fieldset>
-    <div class="form-group row">
-      <label for="product_img_url" class="col-sm-2 col-form-label">Img url</label>
-      <div class="col-sm-10">
-        <input type="text" name="product[img_url]" class="form-control" id="product_img_url" value="<%= product.img_url if product.img_url.present? %>" required>
-      </div>
-    </div>
     <div class="form-group row">
       <div class="col-sm-10">
         <input type="submit" name="commit" class="btn btn-primary" value="Save" data-disable-with="Create Product">
