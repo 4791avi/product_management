@@ -41,6 +41,7 @@ gem 'ajax-datatables-rails', '~> 1.1'
 # Include jQuery DataTables in asset pipeline with ease
 gem 'jquery-datatables', '~> 1.10', '>= 1.10.19.1'
 
+gem 'faker', '~> 2.12'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

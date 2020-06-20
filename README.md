@@ -13,7 +13,7 @@ ruby version - '2.5.5'
 
 - Rails version
 
-```rails
+```ruby
 rails version - '5.2.4'
 ```
 
