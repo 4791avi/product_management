@@ -19,13 +19,16 @@ rails version - '5.2.4'
 
 - Commands to run
 
-```
+```ruby
 rake db:create db:migrate db:seed
 ```
 
+```ruby
+creating 1000 Products through seed file
+```
 - To start the server
 
-```
+```ruby
 rails s
 ```
 
