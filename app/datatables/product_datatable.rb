@@ -23,7 +23,7 @@ class ProductDatatable < AjaxDatatablesRails::ActiveRecord
       {
         name:           record.name,
         description:    record.description,
-        price:          record.price,
+        price:          "$ #{record.price}",
         availability:   (record.availability.present? && record.availability == true) ? "Active" : "Inactive",
         img_url:        record.img_url,
         action:         action(record),

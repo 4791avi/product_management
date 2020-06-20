@@ -1,24 +1,31 @@
-# README
+# Product Management Application
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+- Ruby version
 
-* System dependencies
+```ruby
+ruby version - '2.5.5'
+```
 
-* Configuration
+- Rails version
 
-* Database creation
+```rails
+rails version - '5.2.4'
+```
 
-* Database initialization
+- Commands to run
 
-* How to run the test suite
+```
+rake db:create db:migrate db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+- To start the server
 
-* Deployment instructions
+```
+rails s
+```
 
-* ...
